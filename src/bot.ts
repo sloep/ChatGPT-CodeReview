@@ -33,7 +33,7 @@ export const robot = (app: Probot) => {
         repo: repo.repo,
         owner: repo.owner,
         issue_number: context.pullRequest().pull_number,
-        body: `Seems you are using me but didn't get OPENAI_API_KEY seted in Variables/Secrets for this repo. you could follow [readme](https://github.com/anc95/ChatGPT-CodeReview) for more information`,
+        body: `It seems you are using me, but did not successfully set the OPENAI_API_KEY under "Secrets and variables" for this repository. More information is available in the [readme](https://github.com/anc95/ChatGPT-CodeReview).`,
       });
       return null;
     }
@@ -56,7 +56,7 @@ export const robot = (app: Probot) => {
         pull_request.locked ||
         pull_request.draft
       ) {
-        return 'invalid event paylod';
+        return 'invalid event payload';
       }
 
       const data = await context.octokit.repos.compareCommits({
@@ -117,7 +117,7 @@ export const robot = (app: Probot) => {
       }
 
       console.timeEnd('gpt cost');
-      console.info('successfully reviewed', context.payload.pull_request.html_url);
+      console.info('reviewed successfully', context.payload.pull_request.html_url);
 
       return 'success';
     }
