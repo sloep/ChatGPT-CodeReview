@@ -14,9 +14,8 @@ export class Chat {
   }
 
   private generatePrompt = (patch: string) => {
-    const answerLanguage = process.env.LANGUAGE
-      ? `Answer me in ${process.env.LANGUAGE},`
-      : '';
+	  const lang = process.env.LANGUAGE ? process.env.LANGUAGE.charAt(0).toUpperCase() + process.env.LANGUAGE.slice(1) : '';
+	  const answerLanguage = lang === 'English' ? '' : `Answer me in ${lang},`;
 
     return `Bellow is the code patch, please help me do a brief code review,${answerLanguage} if any bug risk and improvement suggestion are welcome
     ${patch}
