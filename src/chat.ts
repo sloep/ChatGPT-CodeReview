@@ -17,6 +17,8 @@ export class Chat {
 	  const lang = process.env.LANGUAGE ? process.env.LANGUAGE.charAt(0).toUpperCase() + process.env.LANGUAGE.slice(1) : '';
 	  const answerLanguage = lang === 'English' ? '' : `Answer me in ${lang},`;
 
+    console.log(answerLanguage);
+
     return `Bellow is the code patch, please help me do a brief code review,${answerLanguage} if any bug risk and improvement suggestion are welcome
     ${patch}
     `;
