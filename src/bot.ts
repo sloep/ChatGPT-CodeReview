@@ -56,7 +56,7 @@ export const robot = (app: Probot) => {
         pull_request.locked ||
         pull_request.draft
       ) {
-        return 'invalid event paylod';
+        return 'invalid event payload';
       }
 
       const data = await context.octokit.repos.compareCommits({
