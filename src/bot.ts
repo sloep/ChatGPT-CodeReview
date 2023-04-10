@@ -78,11 +78,17 @@ export const robot = (app: Probot) => {
           head: commits[commits.length - 1].sha,
         });
 
+		console.log("data", data);
+
         const filesNames = files?.map((file) => file.filename) || [];
         changedFiles = changedFiles?.filter((file) =>
           filesNames.includes(file.filename)
         );
+
+		console.log("filesNames", filesNames);
       }
+
+	  console.log("changedFiles", changedFiles);
 
       if (!changedFiles?.length) {
         return 'no change';
