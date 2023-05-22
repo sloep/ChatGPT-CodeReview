@@ -93,6 +93,20 @@ export const robot = (app: Probot) => {
         );
       }
 
+      const fs = require('fs'); 
+      const ignoreList = fs.readFileSync('ignoredfiles.txt', 'utf-8').split('\n').filter(Boolean);
+      const ignorePatterns = ignoreList.map((pattern: string) => new RegExp('^' + pattern.replace(/[*]/g, '.*') + '$'));
+  
+      // Filter out ignored files from the changedFiles array
+      changedFiles = changedFiles?.filter(file => {
+      for (const pattern of ignorePatterns) {
+          if (pattern.test(file.filename)) {
+          return false;
+          }
+      }
+      return true;
+      });
+
       if (!changedFiles?.length) {
         return 'no change';
       }

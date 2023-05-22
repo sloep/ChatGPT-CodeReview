@@ -1,0 +1,5 @@
+package.json
+yarn.locked
+tsconfig.json
+.*\.(doc|docx|pdf|txt)$
+.*\.example$
