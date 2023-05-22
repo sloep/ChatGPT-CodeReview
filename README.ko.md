@@ -2,10 +2,11 @@
 
 > cr bot은 ChatGPT를 활용한 코드리뷰 로봇입니다.
 
-Translation Versions: [ENGLISH](./README.md) | [中文简体](./README.zh-CN.md) | [中文繁體](./README.zh-TW.md) | [한국어](./README.ko.md)
+Translation Versions: [ENGLISH](./README.md) | [中文简体](./README.zh-CN.md) | [中文繁體](./README.zh-TW.md) | [한국어](./README.ko.md) | [日本語](./README.ja.md)
 
 ## 사용법
 
+❗️⚠️비용을 고려하여 BOT은 테스트 목적으로만 사용되며, 현재 AWS Lambda에 배포되어 속도 제한을 받고 있습니다. 따라서 불안정한 상황은 완전히 정상적입니다. 응용 프로그램을 직접 배포하는 것이 좋습니다.
 ### 설치
 
 설치: [apps/cr-gpt](https://github.com/apps/cr-gpt);
@@ -53,7 +54,7 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: anc95/ChatGPT-CodeReview@v1
+      - uses: anc95/ChatGPT-CodeReview@main
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}

@@ -2,9 +2,11 @@
 
 > 由 ChatGPT 提供支持的代码审查机器人
 
-翻译版本：[英语](./README.md)\|[中文简体](./README.zh-CN.md)\|[中文繁体](./README.zh-TW.md)
+翻译版本：[英语](./README.md)\|[中文简体](./README.zh-CN.md)\|[中文繁体](./README.zh-TW.md) \| [한국어](./README.ko.md) \| [日本語](./README.ja.md)
 
 ## 用法
+
+❗️⚠️ 鉴于成本考虑，BOT仅用于测试目的，并目前在AWS Lambda上部署并受到速率限制。因此，不稳定的情况是完全正常的。建议自己部署应用程序。
 
 ### 安装
 
@@ -52,7 +54,7 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: anc95/ChatGPT-CodeReview@v1
+      - uses: anc95/ChatGPT-CodeReview@main
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
