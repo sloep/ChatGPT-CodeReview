@@ -100,7 +100,7 @@ export const robot = (app: Probot) => {
 	  console.log("changedFiles", changedFiles);
 
       const fs = require('fs'); 
-      const ignoreList = fs.readFileSync('./ignoredfiles.txt', 'utf-8').split('\n').filter(Boolean);
+      const ignoreList = fs.readFileSync('../ignoredfiles.txt', 'utf-8').split('\n').filter(Boolean);
       const ignorePatterns = ignoreList.map((pattern: string) => new RegExp('^' + pattern.replace(/[*]/g, '.*') + '$'));
   
       // Filter out ignored files from the changedFiles array
